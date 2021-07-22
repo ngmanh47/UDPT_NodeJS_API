@@ -1,0 +1,31 @@
+{
+    "create": {
+      "required": [
+        "question_category_id",
+        "question_title",
+        "question_detail",
+        "user_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "question_category_id": { "type": "integer" },
+        "question_title": { "type": "string" },
+        "question_detail": { "type": "string" },
+        "user_id": { "type": "integer" }
+      }
+    },
+
+    "update": {
+      "required": [
+        "user_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "question_category_id": { "type": "integer" },
+        "question_title": { "type": "string" },
+        "question_detail": { "type": "string" },
+        "user_id": { "type": "integer" }
+      }
+    }
+
+}
