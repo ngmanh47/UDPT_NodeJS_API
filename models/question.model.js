@@ -12,8 +12,9 @@ module.exports = {
     async all(page = 1, limit = LIMIT, sort = SORT_TYPE) {
         const listQues = await db(TABLE_NAME)
         .join("question_categories", `${TABLE_NAME}.question_category_id`, "=", "question_categories.question_category_id")
+        .join("users", `${TABLE_NAME}.user_id`, "=", "users.user_id")
         .where(`${TABLE_NAME}.is_active`, IS_ACTIVE)
-        .select(`${TABLE_NAME}.*`, "question_categories.question_category_name")
+        .select(`${TABLE_NAME}.*`, "question_categories.question_category_name", "users.firstname", "users.lastname")
         .orderBy(`${TABLE_NAME}.${PRIMARY_KEY}`, sort)
         .limit(limit)
         .offset((page - 1) * limit);

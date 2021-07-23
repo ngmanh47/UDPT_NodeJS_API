@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/WNC-HCMUS-2021/Final-Project-Backend#readme",
   "dependencies": {
+    "@fast-csv/format": "^4.3.5",
+    "@fast-csv/parse": "^4.3.6",
     "ajv": "^6.12.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -26,12 +28,14 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "fast-csv": "^4.3.6",
+    "fs": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.6",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.7",
+    "path": "^0.12.7",
     "randomstring": "^1.2.1",
     "request": "^2.88.2"
   }

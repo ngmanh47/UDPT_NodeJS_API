@@ -1,0 +1,21 @@
+{
+    "create": {
+        "required": [
+            "question_category_name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+            "question_category_name": { "type": "string" }
+        }
+    },
+
+    "update": {
+        "required": [
+            "question_category_name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+            "question_category_name": { "type": "string" }
+        }
+    }
+}

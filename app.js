@@ -6,12 +6,9 @@ require("dotenv").config();
 body_parser = require("body-parser");
 request = require("request");
 
-const categoryModel = require("./models/academy-category.model");
-
 const auth = require("./middlewares/auth.mdw");
 const handlerError = require("./middlewares/error-response.mdw");
 const AppError = require("./utils/appError");
-
 const app = express();
 
 app.use(cors());
@@ -28,9 +25,9 @@ app.use(body_parser.json());
 
 //API
 app.use("/api/auth", require("./routes/auth.route"));
+app.use("/api/question-category", auth, require("./routes/question-category.route"));
 app.use("/api/question", auth, require("./routes/question.route"));
 app.use("/api/answer", auth, require("./routes/answer.route"));
-
 
 app.use("/api/udpt", auth, require("./routes/udpt.route"));
 
