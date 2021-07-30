@@ -15,7 +15,7 @@ router.get('/', async function (req, res) {
     const list = await questionModel.all(page, limit, sort);
     const data = {
         data: list,
-        page: page ? page : 1 
+        page: page ? page : 1
     }
     successResponse(res, "Query data success", data);
 })
@@ -23,12 +23,18 @@ router.get('/', async function (req, res) {
 // chi tiết câu hỏi, kèm câu trả lời
 router.get('/:id', async function (req, res) {
     const id = req.params.id || 0;
-    const question = await questionModel.single(id);
-    // get list answer
-    const listAns = await answerModel.getAnswerByQuestionId(id);
-    question.list_answer = listAns;
+    var question = await questionModel.single(id);
+    if (question) {
+        // get list answer
+        const listAns = await answerModel.getAnswerByQuestionId(id);
+        console.log(question);
+        question.list_answer = listAns ? listAns : [];
 
-    successResponse(res, "Query data success", question);
+        successResponse(res, "Query data success", question);
+    } else {
+        successResponse(res, "Have not question", null, 400, false);
+    }
+
 })
 
 // thêm câu hỏi
