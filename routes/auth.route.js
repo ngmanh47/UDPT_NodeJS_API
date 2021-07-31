@@ -18,13 +18,13 @@ router.post("/", async function (req, res) {
     return successResponse(res, "Username không tồn tại", null, 400, false);
   }
 
-  if (req.body.password !== user.password) {
-    return successResponse(res, "Mật khẩu không đúng", null, 400, false);
-  }
-
-  // if (!bcrypt.compareSync(req.body.password, user.password)) {
+  // if (req.body.password !== user.password) {
   //   return successResponse(res, "Mật khẩu không đúng", null, 400, false);
   // }
+
+  if (!bcrypt.compareSync(req.body.password, user.password)) {
+    return successResponse(res, "Mật khẩu không đúng", null, 400, false);
+  }
 
   const payload = {
     userId: user.user_id,
